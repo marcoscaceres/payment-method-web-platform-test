@@ -26,29 +26,30 @@ const respecConfig = {
 <section id='abstract'>
   This document specifies a the "web-platform-test" payment method identifier, and related 
   data structures. It is intended to be used solely for for purpose of interoperability testing
-  of the <cite><a data-cite="PAYMENT-REQUEST">Payment Request API</a></cite>.
+  of the <cite><a data-cite="!PAYMENT-REQUEST">Payment Request API</a></cite>.
 </section>
 
 <section id='sotd'></section>
     
 ## Payment Method Identifier
-The <a data-cite="PAYMENT-METHOD-ID">standardized payment method identifier</a> is <dfn>`web-platform-test`</dfn>
+The <a data-cite="!PAYMENT-METHOD-ID">standardized payment method identifier</a> is <dfn>`web-platform-test`</dfn>
 
 <section data-dfn-for="PaymentTestRequest">
-## <dfn>PaymentTestRequest</dfn> dictionary
+  ## Payment Request
+  The <a>PaymentTestRequest</a> is used when constructing a
+  <code><dfn data-cite="!PAYMENT-REQUEST#dom-paymentrequest">PaymentRequest</code></dfn> for the testing purposes.
 
-<pre class="idl">
-dictionary PaymentTestRequest {
-  PaymentUserAction emulateUserAction;
-};
-</pre>
+  ### <dfn>PaymentTestRequest</dfn> dictionary
+  <pre class="idl">
+  dictionary PaymentTestRequest {
+    PaymentUserAction emulateUserAction;
+  };
+  </pre>
 
-The <a>PaymentTestRequest</a> can be used when constructing a payment request. 
+  ### <dfn>emulateUserAction</dfn> member
+  The user action to emulate are represented by values of the <a>PaymentUserAction</a> enum.
 
-### <dfn>emulateUserAction</dfn> member
-The user action to emulate are represented by values of the <a>PaymentUserAction</a> enum.  
-
-### <dfn>PaymentUserAction</dfn> enum
+  ### <dfn>PaymentUserAction</dfn> enum
   <pre class="idl">
     enum PaymentUserAction { "not-supported", "abort" };
   </pre>
@@ -61,7 +62,9 @@ The user action to emulate are represented by values of the <a>PaymentUserAction
 </section>
 
 <section data-dfn-for="TestPaymentResponse">
-  ## Payment Method Response
+  ## Payment Response
+  The <a>TestPaymentResponse</a> is received by the
+  <code><dfn data-cite="!PAYMENT-REQUEST#dom-paymentresponse">PaymentResponse</code></dfn> for the testing purposes.
 
   ### <dfn>TestPaymentResponse</dfn> dictionary
   <pre class="idl">
